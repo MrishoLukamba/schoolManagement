@@ -1,0 +1,14 @@
+.Left-div{
+    flex: 0.3;
+    background-color:#4C357B;
+    position: relative;
+    box-sizing: border-box;
+}
+#school-logo{
+    position: absolute;
+    width: 227px;
+    height: 226px;
+    left: 200px;
+    top: 74px;
+    border-radius: 113px;
+}

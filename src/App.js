@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import Teacher from './Teacher';
+import Student from './Student';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </Route>
           <Route path='/students'>
              <Left/>
+             <Student/>
           </Route>
           <Route path='/about'>
              <Left/>

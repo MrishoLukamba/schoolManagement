@@ -1,11 +1,23 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './css/Teacher.css';
 import AddIcon from '@material-ui/icons/Add';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import instance from './api/api';
+import endpoints from './api/endpoints';
 
 function Teacher() {
+    const [teachers, setTeachers] = useState([]);
+
+    useEffect(()=>{
+        async function fetchTeachers(){
+            const response = await instance.get(endpoints.teachers);
+            setTeachers(response.data);
+            return response;
+        }
+        fetchTeachers();
+    },[])
     return (
         <div className='Teacher-div'>
             <div className='Teacher-Top'>
@@ -21,22 +33,28 @@ function Teacher() {
                         <h4>Gender</h4>
                         <h4>Subject</h4>
                         <h4>Class</h4>
+                        <div></div>
                     </div>
-                    <div className='Teacher-Bottom-Main-Context'>
-                        <img src='https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Avatar-Teaser-Poster.jpg/220px-Avatar-Teaser-Poster.jpg' alt=''/>
-                        <h5>Akida Mwabaya</h5>
-                        <h5>Male</h5>
-                        <h5>Math</h5>
-                        <h5>Form 4B</h5>
-                        <div className='icons'>
+                    {teachers.map(({name, gender, teachersubect, teacherclass,teacherImage})=>(
+                        <div className='Teacher-Bottom-Main-Context'>
+                            <img src={teacherImage} alt=''/>
+                            <h5>{name}</h5>
+                            <h5>{gender}</h5>
+                            <h5>{teachersubect}</h5>
+                            <h5>{teacherclass}</h5>
                             <MoreVertIcon style={{ fontSize: 20 }}/>     
-                            <EditIcon style={{ fontSize: 20 }}/>
-                            <DeleteIcon style={{ fontSize: 25 }} color="secondary"/>                       
+                                            
                         </div>
+                    ))}
+                    
+
+
+
+                    
                     </div>
                 </div>
             </div>
-        </div>
+        
     )
 }
 

@@ -3,6 +3,7 @@
     background-color:#4C357B;
     position: relative;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 #school-logo{
     position: absolute;

@@ -69,14 +69,11 @@
     box-sizing: border-box;
 }
 .Teacher-Bottom-Main::-webkit-scrollbar{
-    width:0px;
-    background-color: #fff;
+    background-color:transparent;
+    width:10px;
 }
 .Teacher-Bottom-Main::-webkit-scrollbar-thumb{
-    background-color:#4C357B;
-}
-.Teacher-Bottom-Main::-webkit-scrollbar:hover{
-    width: 7px;
+    background:#4C357B;
 }
 .Teacher-Bottom-Main-Titles{
     display: flex;
@@ -88,10 +85,13 @@
     font-weight: 200;
     color: gray; 
     font-size: 0.8em;  
+    
 }
 .Teacher-Bottom-Main-Context{
     width: 100%;
+    min-height: 8vh;
     height: 8vh;
+    max-height: 10vh;
     border-top: 1px solid gainsboro;
     border-bottom: 1px solid gainsboro;
     background-color:whitesmoke;
@@ -105,6 +105,12 @@
     position: relative;
     
 }
+.Teacher-Bottom-Main-Context > h5{
+    font-size:1em;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 300;
+}
+
 .Teacher-Bottom-Main-Context >img{
     position: absolute;
     left: 0%;
@@ -122,4 +128,5 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 2px;
 }
